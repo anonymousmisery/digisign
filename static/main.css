@@ -60,6 +60,7 @@ button:hover {
     background-color: green;
     height: 50px;
     cursor: move;
+    position: absolute;
 }
 
 .droparea {
