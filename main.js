@@ -2,6 +2,8 @@
 dragElement(document.getElementById("test"));
 
 function dragElement(elmnt) {
+  var offsets;
+
   var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
   if (document.getElementById(elmnt.id)) {
     // if present, the header is where you move the DIV from:
@@ -12,6 +14,8 @@ function dragElement(elmnt) {
   }
 
   function dragMouseDown(e) {
+    offsets = elmnt.parentElement.getBoundingClientRect();
+    console.log(offsets);
     e = e || window.event;
     e.preventDefault();
     // get the mouse cursor position at startup:
@@ -26,6 +30,8 @@ function dragElement(elmnt) {
     e = e || window.event;
     e.preventDefault();
     // calculate the new cursor position:
+    console.log(`ClientX = ${e.clientX}`);
+    console.log(`ClientY = ${e.clientY}`);
     pos1 = pos3 - e.clientX;
     pos2 = pos4 - e.clientY;
     pos3 = e.clientX;
